@@ -22,7 +22,6 @@ def run(protocol: protocol_api.ProtocolContext):
     #pipettes
     p300_multi = protocol.load_instrument('p300_multi_gen2', 'right', tip_racks=[tiprack_1]) #uses multi-pipette
     
-    
     p300_multi.distribute(100, reservoir.wells('A1'), 
                       plate.wells('A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12')) #Distributing PBS
     p300_multi.distribute(100, reservoir.wells('A2'), 
