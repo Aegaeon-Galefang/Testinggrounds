@@ -21,7 +21,6 @@ def run(protocol: protocol_api.ProtocolContext):
 
     #pipettes
     p300_multi = protocol.load_instrument('p300_multi_gen2', 'right', tip_racks=[tiprack_1]) #uses multi-pipette
-    protocol.max_speeds['Z'] = 10
     
     
     p300_multi.distribute(100, reservoir.wells('A1'), 
