@@ -28,9 +28,9 @@ def run(protocol: protocol_api.ProtocolContext):
                           plate.wells('A1', 'A2')) #Distributing fluorescin into stock reference wells and first dilutions
 
     p300_multi.pick_up_tip()
-    for i in range(10):
-        arrival = 'A' + str(i+1)
-        destination = 'A' + str(i+2)
+    for i in range(9):
+        arrival = 'A' + str(i+2)
+        destination = 'A' + str(i+3)
         p300_multi.transfer(100, plate[arrival], plate[destination], mix_before=(3,50), 
                   touch_tip=True, blow_out=True, blowout_location='destination well', new_tip='never') #Serial dilution transfers
 
