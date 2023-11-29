@@ -21,13 +21,15 @@ def run(protocol: protocol_api.ProtocolContext):
 
     #pipettes
     p300_multi = protocol.load_instrument('p300_multi_gen2', 'left', tip_racks=[tiprack_1]) #uses multi-pipette
-    
+
+    #protocol
     p300_multi.distribute(100, reservoir.wells('A1'), 
                       plate.wells('A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12')) #Distributing PBS
     p300_multi.distribute(100, reservoir.wells('A2'), 
                           plate.wells('A1', 'A2')) #Distributing fluorescin into stock reference wells and first dilutions
 
     p300_multi.pick_up_tip()
+    p300_multi.flow_rate.aspirate = 50
     for i in range(9):
         arrival = 'A' + str(i+2)
         destination = 'A' + str(i+3)
